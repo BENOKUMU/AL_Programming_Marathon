@@ -2,7 +2,7 @@ page 50008 "MNB Bonus Card"
 {
     ApplicationArea = All;
     Caption = 'MNB Bonus Card';
-    PageType = Card;
+    PageType = Document;
     SourceTable = "MNB Bonus Header";
     
     layout
