@@ -144,13 +144,6 @@ page 50005 "Procurement Plan Header"
                 field("% of AGPO Reservation"; Rec."% of AGPO Reservation")
                 {
                     ApplicationArea = All;
-                    
-                    trigger OnValidate()
-                    begin
-                        if Rec."Total Estimate" <> 0 then begin
-                            
-                        end;
-                    end;
                 }
             }
             part(Control4; "Procurement Plan Lines")
@@ -480,6 +473,8 @@ page 50005 "Procurement Plan Header"
         Lines: Record "Procurement Plan Lines";
         // PurchMg: Codeunit "Purchases Management";
         PageEditable: Boolean;
+
+
 
     trigger OnOpenPage()
 

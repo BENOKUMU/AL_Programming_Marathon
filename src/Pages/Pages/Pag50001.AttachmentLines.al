@@ -1,13 +1,11 @@
 page 50001 "Attachment Lines"
 {
     ApplicationArea = All;
-    // Caption = 'Attachment Lines';
-    // AutoSplitKey = true;
     MultipleNewLines = false;
     UsageCategory = Lists;
     PageType = ListPart;
     SourceTable = "Portal Attachments";
-    // SourceTableView = sorting(Attachment);
+    
     
     layout
     {

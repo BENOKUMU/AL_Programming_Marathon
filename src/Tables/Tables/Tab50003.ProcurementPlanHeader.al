@@ -227,16 +227,7 @@ table 50003 "Procurement Plan Header"
         field(37; "% of AGPO Reservation"; Decimal)
         {
             Editable = false;
-
-            trigger OnValidate()
-            var
-                
-            begin
-                PercentageAGPO;
-                // "AGPO Reservation" := 
-                Message('the agpo %1 ', "% of AGPO Reservation");
-            end;
-
+            // FieldClass = FlowField;
             
         }
     }

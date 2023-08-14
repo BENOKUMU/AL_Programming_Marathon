@@ -62,24 +62,26 @@ table 50004 "Procurement Plan Lines"
             var
                 SupplierCategory: Record "Supplier Category";
                 procHeader: Record "Procurement Plan Header";
+                procLine: Record "Procurement Plan Lines";
+
+
             begin
+
                 "Estimated Cost" := Quantity * "Unit Price";
                 if Category <> '' then begin
                     SupplierCategory.Get(Category);
                     if SupplierCategory."Is Special Group" = true then begin
                         "AGPO Reservation Est. Amnt." := "Estimated Cost";
-                        Message('%AGPO is %1, special %2, ', procHeader."% of AGPO Reservation", SupplierCategory);
+                        if (procHeader."AGPO Reservation" <> 0) and (procHeader."Total Estimate" <> 0) then
+                            procHeader."% of AGPO Reservation" := Round(procHeader."AGPO Reservation" / procHeader."Total Estimate" * 100);
+                        // Message('%AGPO is %1, special %2, resevation is %3', procHeader."% of AGPO Reservation", "Estimated Cost", procHeader."AGPO Reservation");
 
                         // else  
                         // if SupplierCategory."Is Special Group" <> true then 
                         // "AGPO Reservation Est. Amnt." := 0.00;
 
                     end;
-                    if procHeader."Total Estimate" <> 0 then begin
-                        PercentageAGPO();
-                        Message('%AGPO is %1, special %2, ', procHeader."% of AGPO Reservation", SupplierCategory);
-                    end
-                    
+
 
                 end;
                 // "AGPO Reservation Est. Amnt." := Quantity * "Unit Price";
@@ -301,7 +303,7 @@ table 50004 "Procurement Plan Lines"
             // begin
             //     procHeader."% of AGPO Reservation" := procHeader."AGPO Reservation" / procHeader."Total Estimate" * 100;
 
-            //             Message('%AGPO is %1', procHeader."% of AGPO Reservation");
+            //     Message('%AGPO is %1', procHeader."% of AGPO Reservation");
             // end;
         }
     }
@@ -326,6 +328,8 @@ table 50004 "Procurement Plan Lines"
         GLAcc: Record "G/L Account";
         ItemRec: Record Item;
         AssetRec: Record "Fixed Asset";
+        CalculatePerc: Codeunit Percentage_Calculation;
+
 
     trigger OnInsert()
     begin
@@ -346,6 +350,7 @@ table 50004 "Procurement Plan Lines"
     begin
 
     end;
+
     local procedure PercentageAGPO()
     var
         ProcHeader: Record "Procurement Plan Header";

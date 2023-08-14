@@ -103,6 +103,13 @@ page 50010 "Procurement Plan Lines"
                 field("Unit Price"; Rec."Unit Price")
                 {
                     ApplicationArea = All;
+                    trigger OnValidate()
+                    var
+                        ProcHeader: Record "Procurement Plan Header";
+
+                    begin
+                        Message('Reservation is %1', ProcHeader."AGPO Reservation");
+                    end;
                 }
                 field("Procurement Method"; Rec."Procurement Method")
                 {
@@ -116,12 +123,12 @@ page 50010 "Procurement Plan Lines"
                 {
                     ApplicationArea = All;
                 }
-                field("AGPO Reservation Est. Amnt.";Rec."AGPO Reservation Est. Amnt.")
+                field("AGPO Reservation Est. Amnt."; Rec."AGPO Reservation Est. Amnt.")
                 {
                     ApplicationArea = All;
                     trigger OnValidate()
                     begin
-                        
+
                     end;
                 }
                 // field("Plan Status"; Rec."Plan Status")
@@ -176,8 +183,12 @@ page 50010 "Procurement Plan Lines"
         {
         }
     }
+
+
     var
         // ProcurePlanImp: XmlPort "Import Procurement Plan";
         ProcurePlanLines: Record "Procurement Plan Lines";
         ProcuremntHdr: Record "Procurement Plan Header";
+        CalculatePerc: Codeunit Percentage_Calculation;
+       
 }
