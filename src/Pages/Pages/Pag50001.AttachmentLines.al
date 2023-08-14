@@ -7,7 +7,7 @@ page 50001 "Attachment Lines"
     UsageCategory = Lists;
     PageType = ListPart;
     SourceTable = "Portal Attachments";
-    SourceTableView = sorting(Attachment);
+    // SourceTableView = sorting(Attachment);
     
     layout
     {

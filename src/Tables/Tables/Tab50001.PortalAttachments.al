@@ -14,10 +14,14 @@ table 50001 "Portal Attachments"
             Caption = 'URL';
             DataClassification = CustomerContent;
         }
+        field(3; Code; Code[100])
+        {
+            DataClassification = CustomerContent;
+        }
     }
     keys
     {
-        key(PK; "Attachment")
+        key(PK; Code, Attachment)
         {
             Clustered = true;
         }

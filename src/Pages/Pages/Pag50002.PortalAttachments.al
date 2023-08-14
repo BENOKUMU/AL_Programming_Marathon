@@ -12,17 +12,13 @@ page 50002 "Portal Attachments"
         {
             repeater(General)
             {
-                // field("No."; Rec."No.")
-                // {
-                //     ApplicationArea = All;
-                // }
+                field("No.";Rec."No.")
+                {
+                    ApplicationArea = All;
+                }
                 field(Attachment; Rec.Attachment)
                 {
                     ApplicationArea  = All;
-                }
-                field(URL;Rec.URL)
-                {
-                    ApplicationArea = All;
                 }
             }
         }

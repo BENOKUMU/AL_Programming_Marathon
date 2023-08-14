@@ -10,7 +10,7 @@ pageextension 50000 PurchaseQuoteExt extends "Purchase Quote"
                 {
                     ApplicationArea = All;
                     UpdatePropagation = Both;
-                    SubPageLink = Attachment = field("No.");
+                    SubPageLink = Code = field("No.");
                 }
             }
         }
