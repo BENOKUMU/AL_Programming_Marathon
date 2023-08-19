@@ -23,6 +23,7 @@ page 50001 "Attachment Lines"
                 {
                     ApplicationArea = All;
                 }
+            
             }
         }
     }

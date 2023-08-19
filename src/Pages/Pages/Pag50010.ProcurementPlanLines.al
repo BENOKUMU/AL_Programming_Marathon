@@ -13,7 +13,27 @@ page 50010 "Procurement Plan Lines"
     {
         area(Content)
         {
-            repeater(Group)
+            group(Control123)
+            {
+                ShowCaption = false;
+                field("Total Estimate"; TotalEstimate)
+                {
+                    ApplicationArea = All;
+                    trigger OnValidate()
+                    begin
+
+                    end;
+                }
+                field("AGPO Reservation Est Amnt."; AGPOReservation)
+                {
+                    ApplicationArea = All;
+                    trigger OnValidate()
+                    begin
+
+                    end;
+                }
+            }
+            repeater(Control1)
             {
                 ShowCaption = false;
                 field("Plan No"; Rec."Plan No")
@@ -174,6 +194,7 @@ page 50010 "Procurement Plan Lines"
                     ApplicationArea = All;
                 }
             }
+            
         }
     }
 
@@ -190,5 +211,7 @@ page 50010 "Procurement Plan Lines"
         ProcurePlanLines: Record "Procurement Plan Lines";
         ProcuremntHdr: Record "Procurement Plan Header";
         CalculatePerc: Codeunit Percentage_Calculation;
+        TotalEstimate: Decimal;
+        AGPOReservation: Decimal;
        
 }
