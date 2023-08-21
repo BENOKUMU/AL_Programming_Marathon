@@ -4,7 +4,7 @@ page 50012 "Academics Requisition List"
     ApplicationArea = All;
     Caption = 'Academics Requisition List';
     PageType = List;
-    SourceTable = "Academics Requisition List";
+    SourceTable = "Academics Requisition";
     UsageCategory = Lists;
     
     layout

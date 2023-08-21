@@ -1,6 +1,7 @@
 {
     "version": "0.2.0",
     "configurations": [
+        
         {
             "name": "Your own server",
             "request": "launch",
@@ -18,6 +19,7 @@
             "tenant": "default",
             "schemaUpdateMode": "ForceSync",
             "usePublicURLFromServer": true
+            
         }
     ]
 }

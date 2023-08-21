@@ -3,7 +3,7 @@ page 50014 "Units Line Page"
     ApplicationArea = All;
     Caption = 'Units Line Page';
     PageType = ListPart;
-    SourceTable = "Units Line";
+    SourceTable = "Units List";
     // AutoSplitKey = true;
     
     layout

@@ -1,4 +1,4 @@
-table 50009 "Academics Requisition List"
+table 50009 "Academics Requisition"
 {
     Caption = 'Academics Requisition List';
     DataClassification = ToBeClassified;

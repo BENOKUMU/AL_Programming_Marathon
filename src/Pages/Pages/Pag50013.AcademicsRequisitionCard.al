@@ -3,7 +3,7 @@ page 50013 "Academics Requisition Card"
     ApplicationArea = All;
     Caption = 'Academics Requisition Card';
     PageType = Card;
-    SourceTable = "Academics Requisition List";
+    SourceTable = "Academics Requisition";
     
     layout
     {
@@ -89,7 +89,7 @@ page 50013 "Academics Requisition Card"
             {
                 ApplicationArea = All;
                 Caption = 'Units Line Page';
-                SubPageLink = "No." = field("No.");
+                SubPageLink = "No." = field("Course Name");
             }
         }
     }

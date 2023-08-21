@@ -1,4 +1,4 @@
-table 50010 "Units Line"
+table 50010 "Units List"
 {
     Caption = 'Units Line';
     DataClassification = ToBeClassified;
