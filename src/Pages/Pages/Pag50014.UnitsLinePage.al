@@ -4,12 +4,13 @@ page 50014 "Units Line Page"
     Caption = 'Units Line Page';
     PageType = ListPart;
     SourceTable = "Units Line";
+    // AutoSplitKey = true;
     
     layout
     {
         area(content)
         {
-            repeater(General)
+            repeater(Lines)
             {
                 field("Student No.";Rec."Student No.")
                 {
@@ -70,25 +71,30 @@ page 50014 "Units Line Page"
                 field(SystemCreatedAt; Rec.SystemCreatedAt)
                 {
                     ApplicationArea = All;
+                    Visible = false;
                     ToolTip = 'Specifies the value of the SystemCreatedAt field.';
                 }
                 field(SystemCreatedBy; Rec.SystemCreatedBy)
                 {
+                    Visible = false;
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the SystemCreatedBy field.';
                 }
                 field(SystemId; Rec.SystemId)
                 {
+                    Visible = false;
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the SystemId field.';
                 }
                 field(SystemModifiedAt; Rec.SystemModifiedAt)
                 {
+                    Visible = false;
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the SystemModifiedAt field.';
                 }
                 field(SystemModifiedBy; Rec.SystemModifiedBy)
                 {
+                    Visible = false;
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the SystemModifiedBy field.';
                 }
@@ -97,7 +103,73 @@ page 50014 "Units Line Page"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Unit Name field.';
                 }
+                field(Fee;Rec.Fee)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Fee field.';
+                }
+                field("Total Fee";Rec."Total Fee")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Total Fee field.';
+                }
+                field("Special Fee";Rec."Special Fee")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Special Fee field.';
+                }
+            }
+            group(Control991)
+            {
+                ShowCaption = false;
+                field("StudentNo";Rec."Student No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Student No. field.';
+                    trigger OnValidate()
+                    var
+                        StudentNo: Code[20];
+                    begin
+                        StudentNo := Rec."Student No.";
+                    end;
+                }
+                field("TotalFee";Rec."Total Fee")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Total Fee field.';
+                    trigger OnValidate()
+                    var
+                        TotalFee: Decimal;
+                    begin
+                        TotalFee := Rec."Total Fee";
+                    end;
+                }
+                field("SpecialFee";Rec."Special Fee")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Special Fee field.';
+                    trigger OnValidate()
+                    var
+                        SpecialFee: Decimal;
+                    begin
+                        SpecialFee := Rec."Special Fee";
+                    end;
+                }
+                field("No. of Units"; NoUnits)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the No. of Units field.';
+                    trigger OnValidate()
+                    var
+                        NoUnits: Integer;
+                    begin
+                        
+                    end;
+                }
             }
         }
     }
+
+    var
+        NoUnits: Integer;
 }

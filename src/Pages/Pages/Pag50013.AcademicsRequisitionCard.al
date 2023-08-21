@@ -12,6 +12,11 @@ page 50013 "Academics Requisition Card"
             group(General)
             {
                 Caption = 'General';
+                field("No.";Rec."No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the No. field.';
+                }
                 
                 field("Course Name"; Rec."Course Name")
                 {
@@ -38,11 +43,7 @@ page 50013 "Academics Requisition Card"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Instructor Name field.';
                 }
-                field("No."; Rec."No.")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the No. field.';
-                }
+                
                 field(Section; Rec.Section)
                 {
                     ApplicationArea = All;
@@ -88,7 +89,7 @@ page 50013 "Academics Requisition Card"
             {
                 ApplicationArea = All;
                 Caption = 'Units Line Page';
-                SubPageLink = "Student No." = field("Course No.");
+                SubPageLink = "No." = field("No.");
             }
         }
     }

@@ -5,7 +5,7 @@ table 50009 "Academics Requisition List"
     
     fields
     {
-        field(1; "No."; Code[200])
+        field(1; "No."; Code[20])
         {
             Caption = 'No.';
             DataClassification = ToBeClassified;

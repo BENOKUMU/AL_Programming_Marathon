@@ -66,13 +66,34 @@ table 50010 "Units Line"
             DataClassification = ToBeClassified;
             Caption = 'Student No.';
         }
+        field(13; "Fee"; Decimal)
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Fee';
+        }
+        field(14; "Total Fee"; Decimal)
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Total Fee';
+        }
+        field(15; "Special Fee"; Decimal)
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Special Fee';
+        }
+        field(16; "No."; Code[20])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'No.';
+        }
 
     }
     keys
     {
-        key(PK; "Code")
+        key(PK; "No.")
         {
             Clustered = true;
         }
+      
     }
 }
