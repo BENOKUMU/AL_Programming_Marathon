@@ -11,6 +11,11 @@ page 50014 "Units Line Page"
         {
             repeater(General)
             {
+                field("Student No.";Rec."Student No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the value of the Student No. field.';
+                }
                 field("1st Semester Score"; Rec."1st Semester Score")
                 {
                     ApplicationArea = All;
@@ -59,6 +64,7 @@ page 50014 "Units Line Page"
                 field("Semester Type"; Rec."Semester Type")
                 {
                     ApplicationArea = All;
+                    
                     ToolTip = 'Specifies the value of the Semester Type field.';
                 }
                 field(SystemCreatedAt; Rec.SystemCreatedAt)

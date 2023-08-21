@@ -38,6 +38,7 @@ table 50010 "Units Line"
         field(7; "Semester Type"; Text[50])
         {
             DataClassification = ToBeClassified;
+            TableRelation = "Semester Type";
             Caption = 'Semester Type';
         }
         field(8; "Average Score"; Integer)
@@ -59,6 +60,11 @@ table 50010 "Units Line"
         {
             DataClassification = ToBeClassified;
             Caption = 'Remarks';
+        }
+        field(12; "Student No."; Code[20])
+        {
+            DataClassification = ToBeClassified;
+            Caption = 'Student No.';
         }
 
     }

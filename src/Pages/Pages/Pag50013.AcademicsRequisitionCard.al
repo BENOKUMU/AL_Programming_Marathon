@@ -84,6 +84,12 @@ page 50013 "Academics Requisition Card"
                     ToolTip = 'Specifies the value of the Year field.';
                 }
             }
+            part(Lines; "Units Line Page")
+            {
+                ApplicationArea = All;
+                Caption = 'Units Line Page';
+                SubPageLink = "Student No." = field("Course No.");
+            }
         }
     }
 }
