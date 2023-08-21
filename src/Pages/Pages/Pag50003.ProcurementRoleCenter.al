@@ -799,6 +799,23 @@ page 50003 "Procurement Role Center"
                     // RunPageView = where(Status = const(Released), "RR Closed" = const(true));
                 }
             }
+            group("Academics Procurement")
+            {
+                action("Students details")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Students details';
+                    // RunObject = page "Student List";
+                }
+                action("Create a new Academics Requisition")
+                {
+                    ApplicationArea = All;
+                    Caption = 'Create a new Academics Requisition';
+                    RunObject = Page "Academics Requisition List";
+                    // RunPageView = where(Status = const(Open));
+                }
+
+            }
         }
         area(creation)
         {

@@ -37,12 +37,13 @@ page 50008 "MNB Bonus Card"
                     ApplicationArea = All;
                     ToolTip = 'Specifies bonus status.';
                 }
-                part(Lines; "MNB Bonus Subform")
-                {
-                    ApplicationArea = All;
-                    SubPageLink = "Document No." = field("No.");
-                }
+                
 
+            }
+            part(Lines; "MNB Bonus Subform")
+            {
+                ApplicationArea = All;
+                SubPageLink = "Document No." = field("No.");
             }
         }
     }

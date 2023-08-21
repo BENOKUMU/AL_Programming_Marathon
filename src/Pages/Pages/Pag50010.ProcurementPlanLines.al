@@ -124,11 +124,8 @@ page 50010 "Procurement Plan Lines"
                 {
                     ApplicationArea = All;
                     trigger OnValidate()
-                    var
-                        ProcHeader: Record "Procurement Plan Header";
-
                     begin
-                        Message('Reservation is %1', ProcHeader."AGPO Reservation");
+                        CalculateTotalEstimate();
                     end;
                 }
                 field("Procurement Method"; Rec."Procurement Method")
@@ -148,7 +145,7 @@ page 50010 "Procurement Plan Lines"
                     ApplicationArea = All;
                     trigger OnValidate()
                     begin
-
+                        CalculateTotalEstimate();
                     end;
                 }
                 // field("Plan Status"; Rec."Plan Status")
@@ -204,6 +201,54 @@ page 50010 "Procurement Plan Lines"
         {
         }
     }
+    trigger OnAfterGetRecord()
+    var
+        SupplierCategory: Record "Supplier Category";
+        procHeader: Record "Procurement Plan Header";
+        procLine: Record "Procurement Plan Lines";
+    begin
+        if procLine.Category <> '' then begin
+            SupplierCategory.Get(procLine.Category);
+            if SupplierCategory."Is Special Group" = true then begin
+                AGPOReservation := procLine."Unit Price" * 0.3;
+                Message('Agpo is %1', AGPOReservation);
+            end;
+        end;
+    end;
+
+    trigger OnClosePage()
+    var
+        SupplierCategory: Record "Supplier Category";
+        procHeader: Record "Procurement Plan Header";
+        procLine: Record "Procurement Plan Lines";
+    begin
+        if procLine.Category <> '' then begin
+            SupplierCategory.Get(procLine.Category);
+            if SupplierCategory."Is Special Group" = true then begin
+                AGPOReservation := procLine."Unit Price" * 0.3;
+                Message('Agpo is %1', AGPOReservation);
+            end;
+        end;
+    end;
+
+    local procedure CalculateTotalEstimate()
+    var
+        SupplierCategory: Record "Supplier Category";
+        procHeader: Record "Procurement Plan Header";
+        procLine: Record "Procurement Plan Lines";
+    begin
+        ProcuremntHdr.Get(ProcurePlanLines."Plan No");
+        TotalEstimate := 0;
+        AGPOReservation := 0;
+        if procLine.Category <> '' then begin
+            SupplierCategory.Get(procLine.Category);
+            if SupplierCategory."Is Special Group" = true then begin
+                AGPOReservation := procLine."Unit Price" * 0.3;
+                Message('Agpo is %1', AGPOReservation);
+            end;
+        end;
+    end;
+    
 
 
     var
