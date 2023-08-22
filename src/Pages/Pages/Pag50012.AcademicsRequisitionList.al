@@ -33,10 +33,7 @@ page 50012 "Academics Requisition List"
                 {
                     ToolTip = 'Specifies the value of the Instructor Name field.';
                 }
-                field("No."; Rec."No.")
-                {
-                    ToolTip = 'Specifies the value of the No. field.';
-                }
+                
                 field(Section; Rec.Section)
                 {
                     ToolTip = 'Specifies the value of the Section field.';

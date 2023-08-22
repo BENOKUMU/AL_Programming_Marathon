@@ -8,46 +8,46 @@ table 50009 "Academics Requisition"
         field(1; "No."; Code[20])
         {
             Caption = 'No.';
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
         }
         field(2; "Description"; Text[250])
         {
             Caption = 'Description';
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
         }
         field(3; "Course No."; Code[20])
         {
             Caption = 'Course No.';
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
         }
         field(4; "Course Name"; Text[250])
         {
             Caption = 'Course Name';
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
         }
         field(5; "Year"; Date)
         {
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
             Caption = 'Year';
         }
         field(6; "Semester"; Integer)
         {
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
             Caption = 'Semester';
         }
         field(7; "Section"; Integer)
         {
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
             Caption = 'Section';
         }
         field(8; "Instructor"; Code[20])
         {
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
             Caption = 'Instructor';
         }
         field(9; "Instructor Name"; Text[250])
         {
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
             Caption = 'Instructor Name';
         }
         
@@ -59,5 +59,8 @@ table 50009 "Academics Requisition"
             Clustered = true;
         }
         
+        
     }
+
+    
 }

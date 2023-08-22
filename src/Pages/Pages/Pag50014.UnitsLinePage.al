@@ -31,19 +31,26 @@ page 50014 "Units Line Page"
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the 3rd Semester Score field.';
+                    trigger OnValidate()
+                    var
+                        UnitLine: Record "Units List";
+                    begin
+                        Rec."Average Score" := (Rec."1st Semester Score" + Rec."2nd Semester Score" + Rec."3rd Semester Score") / 3;
+                    end;
                 }
                 field("Average Score"; Rec."Average Score")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Average Score field.';
                 }
-                field("Code"; Rec."Code")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the value of the Code field.';
-                }
+                // field("Code"; Rec."Code")
+                // {
+                //     ApplicationArea = All;
+                //     ToolTip = 'Specifies the value of the Code field.';
+                // }
                 field(Description; Rec.Description)
                 {
+                    Visible = false;
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Description field.';
                 }
@@ -126,44 +133,27 @@ page 50014 "Units Line Page"
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Student No. field.';
-                    trigger OnValidate()
-                    var
-                        StudentNo: Code[20];
-                    begin
-                        StudentNo := Rec."Student No.";
-                    end;
+                    
                 }
                 field("TotalFee";Rec."Total Fee")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Total Fee field.';
-                    trigger OnValidate()
-                    var
-                        TotalFee: Decimal;
-                    begin
-                        TotalFee := Rec."Total Fee";
-                    end;
+                   
                 }
                 field("SpecialFee";Rec."Special Fee")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Special Fee field.';
-                    trigger OnValidate()
-                    var
-                        SpecialFee: Decimal;
-                    begin
-                        SpecialFee := Rec."Special Fee";
-                    end;
+                    
                 }
-                field("No. of Units"; NoUnits)
+                field("No. of Units";Rec."No. of Units")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the No. of Units field.';
                     trigger OnValidate()
-                    var
-                        NoUnits: Integer;
                     begin
-                        
+                        // calculateTotalFee();
                     end;
                 }
             }
@@ -171,5 +161,39 @@ page 50014 "Units Line Page"
     }
 
     var
-        NoUnits: Integer;
+        // NoUnits: Integer;
+
+    
+    trigger OnAfterGetRecord()
+    var
+        myInteger: Integer;
+        myResult: Integer;
+        TotalFee: Record "Units List";
+    begin
+        myInteger := 23;
+        myResult := MyFunction(myInteger);
+        TotalFee.SystemRowVersion := myInteger;
+        
+
+        // Message('The result is %1', myResult);
+        // Message('The result is %1', myInteger);
+    end;
+
+    procedure MyFunction(var myInteger: Integer): Integer;
+    begin
+        myInteger := myInteger + 1;
+        exit(myInteger);
+    end;
+
+    Procedure TotalLinesCount(var NoUnits: Integer): Integer;
+    begin
+        NoUnits := 0;
+        while Rec.FindSet() do
+        begin
+            NoUnits := NoUnits + 1;
+        end;
+        exit(NoUnits);
+        Message('The result is %1', NoUnits);
+    end;
+    
 }
