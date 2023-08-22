@@ -285,13 +285,8 @@ table 50004 "Procurement Plan Lines"
         field(49; "Agpo Total Amount"; Decimal)
         {
             FieldClass = FlowField;
+            // CalcFormula = sum("Procurement Plan Lines"."AGPO Reservation Est. Amnt.");
             CalcFormula = sum("Procurement Plan Lines"."AGPO Reservation Est. Amnt.");
-
-            trigger OnValidate()
-            begin
-                CalculatePerc.CalculatePercentage();
-                Message('Agpo %1', Rec."AGPO %");
-            end;
 
         }
 

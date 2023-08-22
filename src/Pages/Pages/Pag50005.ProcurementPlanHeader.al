@@ -151,7 +151,7 @@ page 50005 "Procurement Plan Header"
                 // Editable = ((Rec.Status = Rec.Status::Open) OR (Rec.Status = Rec.Status::Released));
                 ApplicationArea = All;
                 UpdatePropagation = Both;
-                // SubPageLink = "Plan No" = FIELD("No.");
+                SubPageLink = "Plan No" = FIELD("No.");
             }
         }
         area(factboxes)
