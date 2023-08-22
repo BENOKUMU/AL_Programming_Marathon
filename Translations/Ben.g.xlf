@@ -363,10 +363,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Procurement Plan Lines - Field Advertisement Date - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 1788545468 - Field 2296822576 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AGPO %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Procurement Plan Lines - Field AGPO % - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1788545468 - Field 2228839463 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>AGPO Reservation Est. Amnt.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Procurement Plan Lines - Field AGPO Reservation Est. Amnt. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1788545468 - Field 2302399345 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Agpo Total Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Procurement Plan Lines - Field Agpo Total Amount - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1788545468 - Field 3482546970 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Approved Budget</source>
@@ -417,6 +427,11 @@
           <source>Financial Opening date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Procurement Plan Lines - Field Financial Opening date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1788545468 - Field 3436096876 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Nos</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Procurement Plan Lines - Field GetTotalItemNo - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1788545468 - Field 1337243520 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Global Dimension 2 Code</source>
@@ -532,6 +547,11 @@
           <source>TOR/Technical specs due Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Procurement Plan Lines - Field TOR/Technical specs due Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1788545468 - Field 3692706522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Procurement Plan Lines - Field Total Amount - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1788545468 - Field 1878130204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Type</source>

@@ -16,21 +16,28 @@ page 50010 "Procurement Plan Lines"
             group(Control123)
             {
                 ShowCaption = false;
-                field("Total Estimate"; TotalEstimate)
+
+                field("Total Amount"; Rec."Total Amount")
                 {
                     ApplicationArea = All;
-                    trigger OnValidate()
-                    begin
-
-                    end;
+                    Editable = false;
                 }
-                field("AGPO Reservation Est Amnt."; AGPOReservation)
+                field("Agpo Total Amount"; Rec."Agpo Total Amount")
                 {
                     ApplicationArea = All;
-                    trigger OnValidate()
-                    begin
+                    Editable = false;
+                }
+                field("AGPO %"; Rec."AGPO %")
+                {
+                    Editable = false;
+                    ApplicationArea = All;
 
-                    end;
+                }
+                field(GetTotalItemNo; Rec.GetTotalItemNo)
+                {
+                    Editable = false;
+                    ApplicationArea = All;
+
                 }
             }
             repeater(Control1)
@@ -123,10 +130,7 @@ page 50010 "Procurement Plan Lines"
                 field("Unit Price"; Rec."Unit Price")
                 {
                     ApplicationArea = All;
-                    trigger OnValidate()
-                    begin
-                        CalculateTotalEstimate();
-                    end;
+
                 }
                 field("Procurement Method"; Rec."Procurement Method")
                 {
@@ -143,10 +147,7 @@ page 50010 "Procurement Plan Lines"
                 field("AGPO Reservation Est. Amnt."; Rec."AGPO Reservation Est. Amnt.")
                 {
                     ApplicationArea = All;
-                    trigger OnValidate()
-                    begin
-                        CalculateTotalEstimate();
-                    end;
+
                 }
                 // field("Plan Status"; Rec."Plan Status")
                 // {
@@ -191,7 +192,7 @@ page 50010 "Procurement Plan Lines"
                     ApplicationArea = All;
                 }
             }
-            
+
         }
     }
 
@@ -201,62 +202,42 @@ page 50010 "Procurement Plan Lines"
         {
         }
     }
+
     trigger OnAfterGetRecord()
-    var
-        SupplierCategory: Record "Supplier Category";
-        procHeader: Record "Procurement Plan Header";
-        procLine: Record "Procurement Plan Lines";
     begin
-        if procLine.Category <> '' then begin
-            SupplierCategory.Get(procLine.Category);
-            if SupplierCategory."Is Special Group" = true then begin
-                AGPOReservation := procLine."Unit Price" * 0.3;
-                Message('Agpo is %1', AGPOReservation);
-            end;
-        end;
+        CalculatePercentage();
+        // Message('Agpo %1', Rec."AGPO %");
+    end;
+    trigger OnAfterGetCurrRecord()
+    begin
+        CalculatePercentage();
     end;
 
-    trigger OnClosePage()
-    var
-        SupplierCategory: Record "Supplier Category";
-        procHeader: Record "Procurement Plan Header";
-        procLine: Record "Procurement Plan Lines";
-    begin
-        if procLine.Category <> '' then begin
-            SupplierCategory.Get(procLine.Category);
-            if SupplierCategory."Is Special Group" = true then begin
-                AGPOReservation := procLine."Unit Price" * 0.3;
-                Message('Agpo is %1', AGPOReservation);
-            end;
-        end;
-    end;
-
-    local procedure CalculateTotalEstimate()
-    var
-        SupplierCategory: Record "Supplier Category";
-        procHeader: Record "Procurement Plan Header";
-        procLine: Record "Procurement Plan Lines";
-    begin
-        ProcuremntHdr.Get(ProcurePlanLines."Plan No");
-        TotalEstimate := 0;
-        AGPOReservation := 0;
-        if procLine.Category <> '' then begin
-            SupplierCategory.Get(procLine.Category);
-            if SupplierCategory."Is Special Group" = true then begin
-                AGPOReservation := procLine."Unit Price" * 0.3;
-                Message('Agpo is %1', AGPOReservation);
-            end;
-        end;
-    end;
     
+
+
+
+
 
 
     var
         // ProcurePlanImp: XmlPort "Import Procurement Plan";
         ProcurePlanLines: Record "Procurement Plan Lines";
         ProcuremntHdr: Record "Procurement Plan Header";
-        CalculatePerc: Codeunit Percentage_Calculation;
-        TotalEstimate: Decimal;
-        AGPOReservation: Decimal;
-       
+    // CalculatePerc: Codeunit Percentage_Calculation;
+
+    // local procedure CalculatePercentage(): Decimal
+    // begin
+    //     if Rec."Agpo Total Amount" <> 0 then begin
+    //         Rec."AGPO %":= (Rec."Agpo Total Amount" / Rec."Total Amount") * 100;
+    //     end;
+    // end;
+
+    local procedure CalculatePercentage(): Decimal
+    begin
+        if Rec."Agpo Total Amount" <> 0 then begin
+            Rec."AGPO %" := (Rec."Agpo Total Amount" / Rec."Total Amount") * 100;
+        end;
+    end;
+
 }

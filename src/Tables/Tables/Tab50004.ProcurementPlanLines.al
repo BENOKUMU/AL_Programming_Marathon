@@ -72,18 +72,13 @@ table 50004 "Procurement Plan Lines"
                     SupplierCategory.Get(Category);
                     if SupplierCategory."Is Special Group" = true then begin
                         "AGPO Reservation Est. Amnt." := "Estimated Cost";
-                        if (procHeader."AGPO Reservation" <> 0) and (procHeader."Total Estimate" <> 0) then
-                            procHeader."% of AGPO Reservation" := Round(procHeader."AGPO Reservation" / procHeader."Total Estimate" * 100);
-                        // Message('%AGPO is %1, special %2, resevation is %3', procHeader."% of AGPO Reservation", "Estimated Cost", procHeader."AGPO Reservation");
-
-                        // else  
-                        // if SupplierCategory."Is Special Group" <> true then 
-                        // "AGPO Reservation Est. Amnt." := 0.00;
+                        
 
                     end;
 
 
                 end;
+                
                 // "AGPO Reservation Est. Amnt." := Quantity * "Unit Price";
             end;
         }
@@ -171,26 +166,7 @@ table 50004 "Procurement Plan Lines"
         {
             DataClassification = CustomerContent;
         }
-        // field(24; "Plan Status"; Enum "Document Status")
-        // {
-        //     DataClassification = CustomerContent;
-        //     Caption = 'Status';
-        //  DataClassification = CustomerContent;
-        //             TableRelation = "Supplier Category"."Category Code" where("Is Special Group" = filter(true));
-        //             trigger OnValidate()
-        //             var
-        //                 SupplierCategory: Record "Supplier Category";
-        //             begin
-        //                 if Category <> '' then
-        //                 begin
-        //                     SupplierCategory.Get(Category);
-        //                     if SupplierCategory."Is Special Group" then
-        //                     begin
-        //                         "AGPO Reservation Est. Amnt." := "Estimated Cost" * Quantity;
-        //                     end;
-        //                 end;
-        //             end;
-        // }
+        
         field(25; Type; Option)
         {
             DataClassification = CustomerContent;
@@ -306,6 +282,37 @@ table 50004 "Procurement Plan Lines"
             //     Message('%AGPO is %1', procHeader."% of AGPO Reservation");
             // end;
         }
+        field(49; "Agpo Total Amount"; Decimal)
+        {
+            FieldClass = FlowField;
+            CalcFormula = sum("Procurement Plan Lines"."AGPO Reservation Est. Amnt.");
+
+            trigger OnValidate()
+            begin
+                CalculatePerc.CalculatePercentage();
+                Message('Agpo %1', Rec."AGPO %");
+            end;
+
+        }
+
+        field(50; "Total Amount"; Decimal)
+        {
+            FieldClass = FlowField;
+            CalcFormula = sum("Procurement Plan Lines"."Estimated Cost");
+        }
+        field(51; GetTotalItemNo; Integer)
+        {
+            FieldClass = FlowField;
+            CalcFormula = count("Procurement Plan Lines");
+            Caption =  'Item Nos';
+            
+        }
+        field(52; "AGPO %"; Decimal)
+        {
+            DataClassification = ToBeClassified;
+        
+            
+        }
     }
 
     keys
@@ -333,7 +340,7 @@ table 50004 "Procurement Plan Lines"
 
     trigger OnInsert()
     begin
-
+        
     end;
 
     trigger OnModify()
@@ -351,10 +358,6 @@ table 50004 "Procurement Plan Lines"
 
     end;
 
-    local procedure PercentageAGPO()
-    var
-        ProcHeader: Record "Procurement Plan Header";
-    begin
-        ProcHeader."% of AGPO Reservation" := ProcHeader."AGPO Reservation" / ProcHeader."Total Estimate" * 100;
-    end;
+    
+
 }
