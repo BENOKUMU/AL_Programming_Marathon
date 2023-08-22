@@ -44,7 +44,7 @@ table 50012 "Customer Category_PKT"
     }
     keys
     {
-        key(PK; Code) // Primary key
+        key(PK; Code, Description) // Primary key
         {
             Clustered = true;
         }
