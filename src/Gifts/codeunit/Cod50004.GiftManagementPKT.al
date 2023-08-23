@@ -3,6 +3,7 @@ codeunit 50004 GiftManagement_PKT
     procedure AddGifts(var SalesHeader: Record "Sales Header")
     var
         SalesLine: Record "Sales Line";
+        Handled: Boolean;
     begin
         SalesLine.SetRange("Document Type", SalesHeader."Document Type");
         SalesLine.SetRange("Document No.", SalesHeader."No.");
@@ -10,9 +11,9 @@ codeunit 50004 GiftManagement_PKT
         SalesLine.SetFilter("Line Discount %", '<> 100');
         if SalesLine.FindSet() then
             repeat
-                OnBeforeFreeGiftsSalesLineAdded(SalesLine, Handled);
+                // OnBeforeFreeGiftsSalesLineAdded(SalesLine, Handled);
                 AddFreeGiftsSalesLine(SalesLine, Handled);
-                OnAfterFreeGiftsSalesLineAdded(SalesLine);
+                // OnAfterFreeGiftsSalesLineAdded(SalesLine);
             until SalesLine.Next() = 0;
     end;
 
@@ -84,14 +85,14 @@ codeunit 50004 GiftManagement_PKT
     local procedure DoGiftCheck(var Rec: Record "Sales Line"; var GiftCampaign: Record GiftCampaign_PKT; var Handled: Boolean)
     var
         SalesLine: Record "Sales Line";
-        PacktSetup: Record "PacktSetup_PKT Setup";
+        // PacktSetup: Record "PacktSetup_PKT Setup";
         GiftAlert: Label 'Attention: there is an active promotion for %1. if you buy %2 you have a gift of %3';
     begin
         if Handled then
             exit;
-        PacktSetup.Get();
-        if (SalesLine.Quantity < GiftCampaign.MinimumOrderQuantity) and (GiftCampaign.MinimumOrderQuantity - SalesLine.Quantity <= PackSetup."Gift Tolerance Qty") then
-            Message(GiftAlert, SalesLine."No.", Format(GiftCampaign.MinimumOrderQuantity), Format(GiftCampaign.GiftQuantity));
+        // PacktSetup.Get();
+        // if (SalesLine.Quantity < GiftCampaign.MinimumOrderQuantity) and (GiftCampaign.MinimumOrderQuantity - SalesLine.Quantity <= PackSetup."Gift Tolerance Qty") then
+        //     Message(GiftAlert, SalesLine."No.", Format(GiftCampaign.MinimumOrderQuantity), Format(GiftCampaign.GiftQuantity));
     end;
 
     [IntegrationEvent(true, false)]
@@ -114,8 +115,8 @@ codeunit 50004 GiftManagement_PKT
     begin
     end;
 
-OnBeforeFreeGiftSalesLineAdded(SalesLine, Handled);
-AddFreeGiftSalesLine(SalesLine, Handled);
-OnAfterFreeGiftSalesLineAdded(SalesLine);
+// OnBeforeFreeGiftSalesLineAdded(SalesLine, Handled);
+// AddFreeGiftSalesLine(SalesLine, Handled);
+// OnAfterFreeGiftSalesLineAdded(SalesLine);
     
 }
