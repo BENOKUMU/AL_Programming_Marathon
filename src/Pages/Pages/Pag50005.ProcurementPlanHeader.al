@@ -495,16 +495,6 @@ page 50005 "Procurement Plan Header"
         // else
         //     PageEditable := true;
     end;
-    trigger OnClosePage()
-    var
-        ProcHeader: Record "Procurement Plan Header";
-    begin
-        Message('rec %1', ProcHeader."% of AGPO Reservation");
-    end;
-    
-
-
-
 
 
 }

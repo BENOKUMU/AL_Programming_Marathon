@@ -108,6 +108,56 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Customer Category_PKT - Field TotalCustomersForCategory - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3411327006 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gift Campaign</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table GiftCampaign_PKT - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3411327006 - Field 487710309 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Category Code</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table GiftCampaign_PKT - Field CustomeCategoryCode - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3411327006 - Field 487710309 - Method 2126772001 - NamedType 232331533" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This category is not enabled for Gift Campaigns</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table GiftCampaign_PKT - Field CustomeCategoryCode - Method OnValidate - NamedType ErrNoGifts</note>
+        </trans-unit>
+        <trans-unit id="Table 3411327006 - Field 487710309 - Method 2126772001 - NamedType 2006978215" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This category is blocked for Gift Campaigns</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table GiftCampaign_PKT - Field CustomeCategoryCode - Method OnValidate - NamedType ErrBlocked</note>
+        </trans-unit>
+        <trans-unit id="Table 3411327006 - Field 3592094765 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ending Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table GiftCampaign_PKT - Field EndingDate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3411327006 - Field 1740626337 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Free Gift Quantity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table GiftCampaign_PKT - Field GiftQuantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3411327006 - Field 525852245 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inactive</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table GiftCampaign_PKT - Field Inactive - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3411327006 - Field 332802016 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table GiftCampaign_PKT - Field ItemNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3411327006 - Field 4138006509 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Minimum Order Quantity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table GiftCampaign_PKT - Field MinimumOrderQuantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3411327006 - Field 543275552 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table GiftCampaign_PKT - Field StartingDate - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3448698517 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>MNB Bonus Header</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -927,6 +977,56 @@
           <source>Total Sales order Amount</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page CustomerCategoryCard_PKT - Control TotalSalesAmount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 765861844 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gift Campaign List_PKT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Gift Campaign List_PKT - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 765861844 - Control 487710309 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Customer Category Code field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Gift Campaign List_PKT - Control CustomeCategoryCode - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 765861844 - Control 3592094765 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Ending Date field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Gift Campaign List_PKT - Control EndingDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 765861844 - Control 1740626337 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Free Gift Quantity field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Gift Campaign List_PKT - Control GiftQuantity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 765861844 - Control 525852245 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Inactive field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Gift Campaign List_PKT - Control Inactive - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 765861844 - Control 332802016 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Item No. field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Gift Campaign List_PKT - Control ItemNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 765861844 - Control 4138006509 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Minimum Order Quantity field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Gift Campaign List_PKT - Control MinimumOrderQuantity - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 765861844 - Control 543275552 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Starting Date field.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Gift Campaign List_PKT - Control StartingDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 765861844 - View 3497628811 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Active Gift Campaigns</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Gift Campaign List_PKT - View ActiveCampaigns - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 765861844 - View 3467445442 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inactive Gift Campaigns</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Gift Campaign List_PKT - View InactiveCampaigns - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3920254204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>MNB Bonus Card</source>
