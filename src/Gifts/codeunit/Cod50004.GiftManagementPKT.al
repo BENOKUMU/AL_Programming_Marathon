@@ -58,7 +58,7 @@ codeunit 50004 GiftManagement_PKT
             exit(0);
     end;
 
-    [EventSubscriber(ObjectType::Table, Database::, 'OnAfterValidateEvent', 'Quantity', false, false)]
+    // [EventSubscriber(ObjectType::Table, Database::, 'OnAfterValidateEvent', 'Quantity', false, false)]
     local procedure CheckGiftEligibility(var Rec: Record "Sales Line")
     var
         SalesHeader: Record "Sales Header";
